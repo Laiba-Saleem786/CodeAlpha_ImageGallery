@@ -1,0 +1,153 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin: 0;
+   padding: 20px;
+  background: #6b4870;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* Filter buttons */
+.filter-buttons {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.filter-buttons button {
+  border: none;
+  padding: 20px 30px;
+  margin: 10px;
+  background: #2b1d35;
+  color: rgb(248, 252, 5);
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+.filter-buttons button:hover,
+.filter-buttons button.active {
+  background: #2c2b35;
+}
+
+/* Gallery grid */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+  gap: 25px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgb(0 0 0 / 0.1);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(3.05);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: filter 0.3s ease;
+}
+
+/* Lightbox overlay */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right:0;
+  bottom:0;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.lightbox-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Navigation buttons in lightbox */
+.lightbox-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.7);
+  border: none;
+  font-size: 2rem;
+  padding: 20px 25px;
+  cursor: pointer;
+  border-radius: 50%;
+  user-select: none;
+}
+
+.lightbox-btn:hover {
+  background: #e91e63;
+  color: white;
+}
+
+.prev-btn {
+  left: -60px;
+}
+.next-btn {
+  right: -60px;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  font-size: 2rem;
+  background: rgba(255,255,255,0.7);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 10px 20px;
+  color: #624c70;
+  user-select: none;
+}
+.close-btn:hover {
+  background: #721a8d;
+  color: rgb(41, 32, 32);
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .lightbox-btn.prev-btn {
+    left: 10px;
+  }
+  .lightbox-btn.next-btn {
+    right: 10px;
+  }
+  .close-btn {
+    top: 10px;
+    right: 10px;
+    font-size: 3.5rem;
+  }
+}
